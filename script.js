@@ -67,6 +67,15 @@ const playSong = (id) =>{
 
     audio.src = song.src
     audio.title = song.title
+    /*
+        Before playing the song, you need to make sure it starts from the beginning. 
+        This can be achieved by the use of the currentTime property of the audio object.
+    */
+    if (userData?.currentSong === null || userData?.currentSong.id !== song.id) {
+        audio.currentTime = 0;
+    }else{
+        audio.currentTime = userData.songCurrentTime
+    }
 }
 
 renderSongs(userData?.songs)// the ? helps to prevent errors when there you reference a non-existing property
