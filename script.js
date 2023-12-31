@@ -60,7 +60,13 @@ const renderSongs = (array) => {
 }
 
 const playSong = (id) =>{
+    // this code went into the songs property of UserData which is a array of objects
+    //It iterated the array using find() and returned the object that satifies the 
+    //condition within 
+    const song = userData?.songs.find(song => song?.id === id)
 
+    audio.src = song.src
+    audio.title = song.title
 }
 
 renderSongs(userData?.songs)// the ? helps to prevent errors when there you reference a non-existing property
