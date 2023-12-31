@@ -59,4 +59,8 @@ const renderSongs = (array) => {
     playlistSongs.innerHTML = songsHTML
 }
 
+const playSong = (id) =>{
+
+}
+
 renderSongs(userData?.songs)// the ? helps to prevent errors when there you reference a non-existing property
