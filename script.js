@@ -76,7 +76,6 @@ const playSong = (id) =>{
     }else{
         audio.currentTime = userData.songCurrentTime
     }
-    console.log(song);
 }
 playSong(0)
 
