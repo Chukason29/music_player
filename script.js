@@ -64,7 +64,7 @@ const playSong = (id) =>{
     //It iterated the array using find() and returned the object that satifies the 
     //condition within 
     const song = userData?.songs.find(song => song?.id === id)
-
+    
     audio.src = song.src
     audio.title = song.title
     /*
@@ -76,6 +76,10 @@ const playSong = (id) =>{
     }else{
         audio.currentTime = userData.songCurrentTime
     }
+    console.log(song);
 }
+playSong(0)
 
 renderSongs(userData?.songs)// the ? helps to prevent errors when there you reference a non-existing property
+
+playButton.addEventListener("click", playSong)
