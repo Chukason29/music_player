@@ -76,9 +76,16 @@ const playSong = (id) =>{
     }else{
         audio.currentTime = userData.songCurrentTime
     }
+    userData.currentSong = song;
+    playButton.classList.add("playing")
+    audio.play()
 }
-playSong(0)
+
 
 renderSongs(userData?.songs)// the ? helps to prevent errors when there you reference a non-existing property
 
-playButton.addEventListener("click", playSong)
+playButton.addEventListener("click", () => {
+    if(userData.currentSong === null){
+        playSong(userData?.songs[0].id)
+    }
+})
