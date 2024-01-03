@@ -84,8 +84,12 @@ const playSong = (id) =>{
 
 renderSongs(userData?.songs)// the ? helps to prevent errors when there you reference a non-existing property
 
+
+//on click play checks if the current song is null then play the first song
 playButton.addEventListener("click", () => {
     if(userData.currentSong === null){
         playSong(userData?.songs[0].id)
+    }else{
+        playSong(userData?.currentSong.id)
     }
 })
