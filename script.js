@@ -123,6 +123,9 @@ const playNextSong = () => {
     playlistSongElements.forEach((songEl) => {
         songEl.removeAttribute("aria-current");
     });
+    if(songToHighlight){
+        songToHighlight.setAttribute("aria-current", "true")
+    }
   }
   const removeHighlight = ()=>{
     let currentSong = document.querySelector(`#song-${getCurrentSongIndex()}`)
