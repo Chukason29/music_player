@@ -92,15 +92,15 @@ const getCurrentSongIndex = ()=> userData?.songs.indexOf(userData.currentSong)
 
 // on clicking next Button triggers this function
 const playNextSong = () => {
-    let index = getCurrentSongIndex()
-    if (index < userData.songs.length) {
-        index = getCurrentSongIndex() + 1
-        playSong(userData.songs[index].id)
-    }else{
-        alert("No more songs")
+
+    if (userData?.currentSong === null) {
+      playSong(userData?.songs[0].id);
+    } else {
+      const currentSongIndex = getCurrentSongIndex();
+      const nextSong = userData?.songs[currentSongIndex + 1];
+      playSong(nextSong.id);
     }
-    
-}
+  };
 const playPreviousSong = () => {
     let index = getCurrentSongIndex()
     if (index >= 0) {
