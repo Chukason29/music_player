@@ -144,7 +144,9 @@
     display: flex;
     justify-content: space-around;
   }
-  
+  .highlight{
+    border: 1px solid #f1be32
+  }
   button {
     background: transparent;
     border: none;
