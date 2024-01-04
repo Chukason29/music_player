@@ -79,7 +79,8 @@ const playSong = (id) =>{
     }
     userData.currentSong = song;
     playButton.classList.add("playing")
-    highlightSong()
+    highlightCurrentSong()
+    setPlayerDisplay()
     audio.play()
 }
 // Pausing the song
@@ -99,7 +100,6 @@ const playNextSong = () => {
       playSong(userData?.songs[0].id);
     } else {
       const currentSongIndex = getCurrentSongIndex();
-      removeHighlight()
       const nextSong = userData?.songs[currentSongIndex + 1];
       playSong(nextSong.id);
     }
@@ -109,7 +109,6 @@ const playNextSong = () => {
         return
     }else {
       const currentSongIndex = getCurrentSongIndex();
-      removeHighlight()
       const previousSong = userData?.songs[currentSongIndex - 1]
       playSong(previousSong.id)
     }
@@ -127,7 +126,12 @@ const playNextSong = () => {
         songToHighlight.setAttribute("aria-current", "true")
     }
   }
-  
+  const setPlayerDisplay = () =>{
+    const artistElement = document.getElementById("player-song-artist");
+    const titleElement = document.getElementById("player-song-title");
+    artistElement.innerText = userData?.songs[getCurrentSongIndex()].artist
+    titleElement.innerText = userData?.songs[getCurrentSongIndex()].title
+  }
 renderSongs(userData?.songs)// the ? helps to prevent errors when there you reference a non-existing property
 
 //on click play checks if the current song is null then play the first song
