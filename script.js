@@ -87,6 +87,31 @@ const pauseSong = () => {
     audio.pause()
 }
 
+//implicit return function
+const getCurrentSongIndex = ()=> userData?.songs.indexOf(userData.currentSong)
+
+// on clicking next Button triggers this function
+const playNextSong = () => {
+    let index = getCurrentSongIndex()
+    if (index < userData.songs.length) {
+        index = getCurrentSongIndex() + 1
+        playSong(userData.songs[index].id)
+    }else{
+        alert("No more songs")
+    }
+    
+}
+const playPreviousSong = () => {
+    let index = getCurrentSongIndex()
+    if (index >= 0) {
+        index = getCurrentSongIndex() - 1
+        playSong(userData.songs[index].id)
+    }else{
+        alert("No more songs")
+    }
+    
+}
+
 renderSongs(userData?.songs)// the ? helps to prevent errors when there you reference a non-existing property
 
 
@@ -99,3 +124,6 @@ playButton.addEventListener("click", () => {
     }
 })
 pauseButton.addEventListener("click", pauseSong)
+nextButton.addEventListener("click", playNextSong)
+previousButton.addEventListener("click", playPreviousSong)
+
