@@ -101,17 +101,13 @@ const playNextSong = () => {
       playSong(nextSong.id);
     }
   };
-const playPreviousSong = () => {
-    let index = getCurrentSongIndex()
-    if (index >= 0) {
-        index = getCurrentSongIndex() - 1
-        playSong(userData.songs[index].id)
-    }else{
-        alert("No more songs")
+  const playPreviousSong = () => {if (userData?.currentSong === null) return;
+    else {
+      const currentSongIndex = getCurrentSongIndex();
+      const previousSong = userData?.songs[currentSongIndex - 1]
+      playSong(previousSong.id)
     }
-    
-}
-
+  }
 renderSongs(userData?.songs)// the ? helps to prevent errors when there you reference a non-existing property
 
 
