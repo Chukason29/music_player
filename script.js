@@ -80,7 +80,12 @@ const playSong = (id) =>{
     playButton.classList.add("playing")
     audio.play()
 }
-
+// Pausing the song
+const pauseSong = () => {
+    userData.songCurrentTime = audio.currentTime
+    playButton.classList.remove("playing")
+    audio.pause()
+}
 
 renderSongs(userData?.songs)// the ? helps to prevent errors when there you reference a non-existing property
 
@@ -93,3 +98,4 @@ playButton.addEventListener("click", () => {
         playSong(userData?.currentSong.id)
     }
 })
+pauseButton.addEventListener("click", pauseSong)
