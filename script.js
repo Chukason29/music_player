@@ -127,10 +127,6 @@ const playNextSong = () => {
         songToHighlight.setAttribute("aria-current", "true")
     }
   }
-  const removeHighlight = ()=>{
-    let currentSong = document.querySelector(`#song-${getCurrentSongIndex()}`)
-    currentSong.classList.remove("highlight")
-  }
   
 renderSongs(userData?.songs)// the ? helps to prevent errors when there you reference a non-existing property
 
