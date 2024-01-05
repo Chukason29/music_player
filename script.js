@@ -143,6 +143,7 @@ const playNextSong = () => {
     playingSong.textContent = currentTitle ? currentTitle : ""
     songArtist.textContent = currentArtist ? currentArtist : ""
   }
+  // This function shuffles the song
 renderSongs(userData?.songs)// the ? helps to prevent errors when there you reference a non-existing property
 
 //on click play checks if the current song is null then play the first song
