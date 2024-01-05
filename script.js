@@ -81,6 +81,7 @@ const playSong = (id) =>{
     playButton.classList.add("playing")
     highlightCurrentSong()
     setPlayerDisplay()
+    setPlayButtonAccessibleText()
     audio.play()
 }
 // Pausing the song
@@ -89,6 +90,14 @@ const pauseSong = () => {
     playButton.classList.remove("playing")
     audio.pause()
 }
+const setPlayButtonAccessibleText = () => {
+    const song = userData?.currentSong || userData?.songs[0];
+  
+    playButton.setAttribute(
+      "aria-label",
+      song?.title ? `Play ${song.title}` : "Play"
+    );
+};
 
 //implicit return function
 const getCurrentSongIndex = ()=> userData?.songs.indexOf(userData.currentSong)
@@ -127,10 +136,12 @@ const playNextSong = () => {
     }
   }
   const setPlayerDisplay = () =>{
-    const artistElement = document.getElementById("player-song-artist");
-    const titleElement = document.getElementById("player-song-title");
-    artistElement.innerText = userData?.songs[getCurrentSongIndex()].artist
-    titleElement.innerText = userData?.songs[getCurrentSongIndex()].title
+    const playingSong = document.getElementById("player-song-title");
+    const songArtist = document.getElementById("player-song-artist");
+    const currentTitle = userData?.currentSong?.title;
+    const currentArtist = userData?.currentSong?.artist;
+    playingSong.textContent = currentTitle ? currentTitle : ""
+    songArtist.textContent = currentArtist ? currentArtist : ""
   }
 renderSongs(userData?.songs)// the ? helps to prevent errors when there you reference a non-existing property
 
