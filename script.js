@@ -142,22 +142,8 @@ const playNextSong = () => {
     const currentArtist = userData?.currentSong?.artist;
     playingSong.textContent = currentTitle ? currentTitle : ""
     songArtist.textContent = currentArtist ? currentArtist : ""
-  };
-
-
+  }
   // This function shuffles the song
-  const shuffle = () => {
-    userData?.songs.sort(() => Math.random() - 0.5);
-    userData.currentSong = null;
-    userData.songCurrentTime = 0;
-  
-    renderSongs(userData?.songs);
-    pauseSong();
-    setPlayerDisplay();
-    setPlayButtonAccessibleText();
-  };
-
-
 renderSongs(userData?.songs)// the ? helps to prevent errors when there you reference a non-existing property
 
 //on click play checks if the current song is null then play the first song
@@ -171,4 +157,4 @@ playButton.addEventListener("click", () => {
 pauseButton.addEventListener("click", pauseSong)
 nextButton.addEventListener("click", playNextSong)
 previousButton.addEventListener("click", playPreviousSong)
-shuffleButton.addEventListener("click", shuffle)
+
