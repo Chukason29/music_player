@@ -149,7 +149,6 @@ const playNextSong = () => {
     userData?.songs.sort(() => Math.random() - 0.5);
     userData.currentSong = null;
     userData.songCurrentTime = 0;
-  
     renderSongs(userData?.songs);
     pauseSong();
     setPlayerDisplay();
@@ -157,7 +156,16 @@ const playNextSong = () => {
   };
 
   const deleteSong = (id) => {
+    if (userData?.currentSong?.id === id) {
+        userData.currentSong = null
+        userData.songCurrentTime = 0
+        pauseSong()
+        setPlayerDisplay()
+    }
     userData.songs = userData?.songs.filter((song) => song.id !== id)
+    renderSongs(userData?.songs)
+    highlightCurrentSong()
+    setPlayButtonAccessibleText()
   };
 
 renderSongs(userData?.songs)// the ? helps to prevent errors when there you reference a non-existing property
