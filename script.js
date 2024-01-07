@@ -175,7 +175,7 @@ const playNextSong = () => {
         resetButton.appendChild(resetText)
         playlistSongs.appendChild(resetButton)
         resetButton.addEventListener("click", () => {
-    
+            userData.songs = [...allSongs]
         })
     }
   };
