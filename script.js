@@ -174,8 +174,10 @@ const playNextSong = () => {
         resetButton.ariaLabel = "Reset playlist"
         resetButton.appendChild(resetText)
         playlistSongs.appendChild(resetButton)
+        resetButton.addEventListener("click", () => {
+    
+        })
     }
-
   };
 
 renderSongs(userData?.songs)// the ? helps to prevent errors when there you reference a non-existing property
