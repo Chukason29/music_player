@@ -11,25 +11,39 @@ const shuffleButton = document.getElementById("shuffle")
 const allSongs = [
     {
         id: 0,
-        title: "Scratching The Surface",
-        artist: "Quincy Larson",
-        duration: "4:25",
-        src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/scratching-the-surface.mp3",
-    },
-    {
+        title: "Hello World",
+        artist: "RafaelDavisH",
+        duration: "0:23",
+        src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/hello-world.mp3",
+      },
+      {
         id: 1,
-        title: "Can't Stay Down",
-        artist: "Quincy Larson",
-        duration: "4:15",
-        src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/cant-stay-down.mp3",
-    },
-    {
+        title: "In the Zone",
+        artist: "RafaelDavisH",
+        duration: "0:11",
+        src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/in-the-zone.mp3",
+      },
+      {
         id: 2,
-        title: "Still Learning",
-        artist: "Quincy Larson",
-        duration: "3:51",
-        src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/still-learning.mp3",
-    }
+        title: "Camper Cat",
+        artist: "RafaelDavisH",
+        duration: "0:21",
+        src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/camper-cat.mp3",
+      },
+      {
+        id: 3,
+        title: "Electronic",
+        artist: "RafaelDavisH",
+        duration: "0:15",
+        src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/electronic.mp3",
+      },
+      {
+        id: 4,
+        title: "Sailing Away",
+        artist: "RafaelDavisH",
+        duration: "0:22",
+        src: "https://s3.amazonaws.com/org.freecodecamp.mp3-player-project/sailing-away.mp3",
+      },
 ]
 
 // Creating an Audio object in javascript
@@ -207,5 +221,9 @@ audio.addEventListener("ended", () => {
     }else{
         userData.currentSong = null
         userData.songCurrentTime = 0
+        pauseSong() 
+        setPlayerDisplay()
+        highlightCurrentSong()
+        setPlayButtonAccessibleText()
     }
 })
