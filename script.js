@@ -166,6 +166,12 @@ const playNextSong = () => {
     renderSongs(userData?.songs)
     highlightCurrentSong()
     setPlayButtonAccessibleText()
+
+    if (userData.songs.length === 0) {
+        const resetButton = document.createElement("button")
+        const resetText = document.createTextNode("Reset Playlist")
+    }
+
   };
 
 renderSongs(userData?.songs)// the ? helps to prevent errors when there you reference a non-existing property
