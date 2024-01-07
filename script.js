@@ -204,5 +204,8 @@ audio.addEventListener("ended", () => {
     const nextSongExists = userData?.songs[currentSongIndex + 1] !== undefined;
     if(nextSongExists){
         playNextSong()
+    }else{
+        userData.currentSong = null
+        userData.songCurrentTime = 0
     }
 })
